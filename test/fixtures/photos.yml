@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  group: 
+  user: one
+  path: MyString
+  date: 2019-08-14 22:31:56
+  peopleCount: 1
+
+two:
+  group: 
+  user: two
+  path: MyString
+  date: 2019-08-14 22:31:56
+  peopleCount: 1

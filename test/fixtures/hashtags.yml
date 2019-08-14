@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyText
+  points: 1
+  repeatable: false
+  repeatTime: 2019-08-14 22:43:20
+
+two:
+  name: MyString
+  description: MyText
+  points: 1
+  repeatable: false
+  repeatTime: 2019-08-14 22:43:20
