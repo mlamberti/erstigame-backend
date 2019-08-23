@@ -67,3 +67,4 @@ gem 'graphiql-rails', '1.5.0', group: :development
 
 gem 'seed_dump'
 
+gem 'rack-cors', :require => 'rack/cors'
