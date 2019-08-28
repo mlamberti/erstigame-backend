@@ -13,17 +13,17 @@
 ActiveRecord::Schema.define(version: 2019_08_14_204700) do
 
   create_table "groups", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "hashtags", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
+    t.string "info"
     t.text "description"
     t.string "picture"
-    t.integer "points"
-    t.boolean "repeatable"
+    t.integer "points", default: 100, null: false
     t.time "repeat_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -37,11 +37,11 @@ ActiveRecord::Schema.define(version: 2019_08_14_204700) do
   end
 
   create_table "photos", force: :cascade do |t|
-    t.integer "group_id"
-    t.integer "user_id"
-    t.string "path"
-    t.datetime "date"
-    t.integer "people_count"
+    t.integer "group_id", null: false
+    t.integer "user_id", null: false
+    t.string "path", null: false
+    t.datetime "date", null: false
+    t.integer "people_count", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["group_id"], name: "index_photos_on_group_id"
@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 2019_08_14_204700) do
 
   create_table "users", force: :cascade do |t|
     t.integer "group_id"
-    t.string "name"
+    t.string "name", null: false
     t.string "info"
     t.string "picture"
     t.datetime "created_at", null: false
