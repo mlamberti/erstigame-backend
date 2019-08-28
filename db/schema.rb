@@ -10,12 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_28_115218) do
+ActiveRecord::Schema.define(version: 2019_08_28_135726) do
 
   create_table "groups", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "join_token"
+    t.index ["join_token"], name: "index_groups_on_join_token", unique: true
   end
 
   create_table "hashtags", force: :cascade do |t|
@@ -68,6 +70,8 @@ ActiveRecord::Schema.define(version: 2019_08_28_115218) do
     t.string "picture"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "auth_token"
+    t.index ["auth_token"], name: "index_users_on_auth_token", unique: true
     t.index ["group_id"], name: "index_users_on_group_id"
   end
 
