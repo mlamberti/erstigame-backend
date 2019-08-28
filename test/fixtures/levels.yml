@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  level: 1
+  num_hours: 0
+  num_places: 1
+  num_sponsors: 2
+  num_catches: 3
+
+two:
+  level: 2
+  num_hours: 0
+  num_places: 4
+  num_sponsors: 5
+  num_catches: 6

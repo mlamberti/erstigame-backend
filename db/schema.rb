@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_14_204700) do
+ActiveRecord::Schema.define(version: 2019_08_28_115218) do
 
   create_table "groups", force: :cascade do |t|
     t.string "name", null: false
@@ -27,6 +27,8 @@ ActiveRecord::Schema.define(version: 2019_08_14_204700) do
     t.time "repeat_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "level_id"
+    t.index ["level_id"], name: "index_hashtags_on_level_id"
   end
 
   create_table "hashtags_photos", id: false, force: :cascade do |t|
@@ -34,6 +36,16 @@ ActiveRecord::Schema.define(version: 2019_08_14_204700) do
     t.integer "hashtag_id", null: false
     t.index ["hashtag_id", "photo_id"], name: "index_hashtags_photos_on_hashtag_id_and_photo_id"
     t.index ["photo_id", "hashtag_id"], name: "index_hashtags_photos_on_photo_id_and_hashtag_id"
+  end
+
+  create_table "levels", force: :cascade do |t|
+    t.integer "level"
+    t.integer "num_hours"
+    t.integer "num_places"
+    t.integer "num_sponsors"
+    t.integer "num_catches"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "photos", force: :cascade do |t|
