@@ -5,7 +5,8 @@ module Types
     field :name, String, null: false
     field :info, String, null: false
     field :points, Integer, null: false
-    field :description, String, null: false
+    field :description, String, null: true
+    field :picture, String, null: true
     field :repeatTime, String, null: true
   end
 end

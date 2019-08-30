@@ -6,32 +6,31 @@ Group.create!([
 Hashtag.create!([
   {name: "Teamfoto", info: "", description: nil, picture: nil, points: 50, repeat_time: nil, level_id: nil},
   {name: "Freifeld", info: "", description: nil, picture: nil, points: 1, repeat_time: nil, level_id: nil},
-  {name: "LevelUp1", info: "", description: nil, picture: nil, points: 50, repeat_time: nil, level_id: nil},
-  {name: "Food", info: "", description: nil, picture: nil, points: 10, repeat_time: nil, level_id: 1},
-  {name: "Playtime", info: "", description: nil, picture: nil, points: 10, repeat_time: nil, level_id: 1},
-  {name: "findHenning", info: "", description: nil, picture: nil, points: 3, repeat_time: nil, level_id: 1},
-  {name: "Institutsführung", info: "", description: nil, picture: nil, points: 50, repeat_time: nil, level_id: 2},
+  {name: "Food", info: "", description: nil, picture: 'Food.jpg', points: 10, repeat_time: nil, level_id: 1},
+  {name: "Playtime", info: "", description: nil, picture: 'Playtime.jpg', points: 10, repeat_time: nil, level_id: 1},
+  {name: "FindHenning", info: "", description: nil, picture: 'FindHenning.jpg', points: 3, repeat_time: nil, level_id: 1},
+  {name: "Institutsführung", info: "", description: nil, picture: 'Institutsführung.jpg', points: 50, repeat_time: nil, level_id: 2},
   {name: "Nature", info: "", description: nil, picture: nil, points: 10, repeat_time: nil, level_id: 2},
   {name: "TagWarGreen", info: "", description: nil, picture: nil, points: 5, repeat_time: nil, level_id: 2},
-  {name: "TagWarBlue", info: "", description: nil, picture: nil, points: 5, repeat_time: nil, level_id: 2},
+  {name: "TagWarBlue", info: "", description: nil, picture: 'TagWarBlue.jpg', points: 5, repeat_time: nil, level_id: 2},
   {name: "Müllaufheben", info: "", description: nil, picture: nil, points: 10, repeat_time: nil, level_id: 2},
   {name: "Schulung", info: "", description: nil, picture: nil, points: 50, repeat_time: nil, level_id: 3},
   {name: "Tutorenversorung", info: "Stehe deinen Tutoren mit Speis und Trank zur Seite", description: nil, picture: nil, points: 20, repeat_time: nil, level_id: 3},
   {name: "Humba", info: "", description: nil, picture: nil, points: 10, repeat_time: nil, level_id: 3},
   {name: "AusSicherheitsgründen", info: "", description: nil, picture: nil, points: 10, repeat_time: nil, level_id: 3},
   {name: "ThankTheGameMasters", info: "", description: nil, picture: nil, points: 20, repeat_time: nil, level_id: 3},
-  {name: "couchcrusher", info: "", description: nil, picture: nil, points: 10, repeat_time: nil, level_id: 3},
+  {name: "CouchCrusher", info: "", description: nil, picture: 'CouchCrusher.jpg', points: 10, repeat_time: nil, level_id: 3},
   {name: "CatchThemAll", info: "", description: nil, picture: nil, points: 10, repeat_time: nil, level_id: 3},
   {name: "KostümGehtImmer", info: "", description: nil, picture: nil, points: 50, repeat_time: nil, level_id: 3},
   {name: "Sport", info: "", description: nil, picture: nil, points: 10, repeat_time: nil, level_id: 4},
-  {name: "KuchenFürCharlotte", info: "Charlotte hat Geburtstag. Überrascht sie mit einem Kuchen!", description: nil, picture: nil, points: 50, repeat_time: nil, level_id: 4},
+  {name: "KuchenFürCharlotte", info: "Charlotte hat Geburtstag. Überrascht sie mit einem Kuchen!", description: nil, picture: 'KuchenFürCharlotte.jpg', points: 50, repeat_time: nil, level_id: 4},
   {name: "Fachschaft", info: "", description: nil, picture: nil, points: 10, repeat_time: nil, level_id: 4},
   {name: "Wohnheimsbar", info: "", description: nil, picture: nil, points: 10, repeat_time: nil, level_id: 4},
   {name: "AnmeldungErstiwochenende", info: "", description: nil, picture: nil, points: 30, repeat_time: nil, level_id: 4},
   {name: "AnmeldungWeihnachtsAG", info: "", description: nil, picture: nil, points: 10, repeat_time: nil, level_id: 4},
   {name: "UnicUpAuswahlTraining", info: "", description: nil, picture: nil, points: 20, repeat_time: nil, level_id: 4},
   {name: "FachschaftsSpieleabend", info: "", description: nil, picture: nil, points: 30, repeat_time: nil, level_id: 4},
-  {name: "catchHenning", info: "Besuche das Fachschaftsmaskottchen im Aachener Tierpark", description: nil, picture: nil, points: 50, repeat_time: nil, level_id: 4}
+  {name: "CatchHenning", info: "Besuche das Fachschaftsmaskottchen im Aachener Tierpark", description: nil, picture: 'FindHenning.jpg', points: 50, repeat_time: nil, level_id: 4}
 ])
 Level.create!([
   {level: 1, num_hours: 0, num_places: 0, num_sponsors: 0, num_catches: 0},
@@ -54,4 +53,7 @@ User.create!([
   {group_id: 1, name: "Herbert", info: nil, picture: nil, auth_token: "QDgXcgo1JD8AaPfE5Qv3TrZo"},
   {group_id: 1, name: "Andreas Arthur Eugen Albert", info: nil, picture: nil, auth_token: "SuvCaLe3RihWTAp3P63tJfjk"},
   {group_id: 1, name: "Dieter", info: nil, picture: nil, auth_token: "YSdBkVXCYMaJZAwW9DsrTmH6"}
+])
+Photo.create!([
+  {group_id: 1, user_id: 1, path: "assets/1.jpg", date: "2019-08-29 23:49:16", people_count: 12, hashtags: [Hashtag.first, Hashtag.second]}
 ])
