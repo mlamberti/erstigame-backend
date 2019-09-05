@@ -10,14 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_28_135726) do
+ActiveRecord::Schema.define(version: 2019_09_04_214842) do
 
   create_table "groups", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "join_token"
+    t.integer "level_id"
+    t.integer "points", default: 0, null: false
+    t.integer "num_catches", default: 0, null: false
+    t.integer "num_places", default: 0, null: false
+    t.integer "num_sponsors", default: 0, null: false
+    t.integer "time_together", default: 0, null: false
     t.index ["join_token"], name: "index_groups_on_join_token", unique: true
+    t.index ["level_id"], name: "index_groups_on_level_id"
   end
 
   create_table "hashtags", force: :cascade do |t|
@@ -30,6 +37,7 @@ ActiveRecord::Schema.define(version: 2019_08_28_135726) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "level_id"
+    t.datetime "start_date"
     t.index ["level_id"], name: "index_hashtags_on_level_id"
   end
 
@@ -41,7 +49,7 @@ ActiveRecord::Schema.define(version: 2019_08_28_135726) do
   end
 
   create_table "levels", force: :cascade do |t|
-    t.integer "level"
+    t.integer "rank"
     t.integer "num_hours"
     t.integer "num_places"
     t.integer "num_sponsors"
@@ -58,6 +66,7 @@ ActiveRecord::Schema.define(version: 2019_08_28_135726) do
     t.integer "people_count", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "points", default: 0, null: false
     t.index ["group_id"], name: "index_photos_on_group_id"
     t.index ["path"], name: "index_photos_on_path", unique: true
     t.index ["user_id"], name: "index_photos_on_user_id"
