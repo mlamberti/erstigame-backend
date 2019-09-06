@@ -5,7 +5,7 @@ module Types
     field :photos, [PhotoType], null: false
     field :createdAt, String, null: true
     field :updatedAt, String, null: true
-
+    field :points, Integer, null:false
     field :users, [UserType], null: false
     def users
       # move current user to front of array
