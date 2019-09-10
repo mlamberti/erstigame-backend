@@ -6,9 +6,9 @@ Level.create!([
   {rank: 5, num_hours: 100, num_places: 0, num_sponsors: 10, num_catches: 6}
 ])
 Group.create!([
-  {name: "Einhörner", join_token: "f9EwJg3i3Wg853uzENvR9FUw", level_id: 3, points: 100, num_catches: 3, num_places: 1, num_sponsors: 2, time_together: 40},
-  {name: "Eichhörnchen", join_token: "y7ixkbExLUJQwqEzmdZL7MRF", level_id: nil, points: 0, num_catches: 0, num_places: 0, num_sponsors: 0, time_together: 0},
-  {name: "Einhörnchen", join_token: "tKBnZa5c9S9wuGCGTLX42qD7", level_id: nil, points: 0, num_catches: 0, num_places: 0, num_sponsors: 0, time_together: 0}
+  {name: "Einhörner", join_token: "f9EwJg3i3Wg853uzENvR9FUw", level: Level.third, points: 100, num_catches: 3, num_places: 1, num_sponsors: 2, time_together: 40},
+  {name: "Eichhörnchen", join_token: "y7ixkbExLUJQwqEzmdZL7MRF", level: nil, points: 0, num_catches: 0, num_places: 0, num_sponsors: 0, time_together: 0},
+  {name: "Einhörnchen", join_token: "tKBnZa5c9S9wuGCGTLX42qD7", level: nil, points: 0, num_catches: 0, num_places: 0, num_sponsors: 0, time_together: 0}
 ])
 Hashtag.create!([
   {name: "Teamfoto", info: "", description: nil, picture: nil, points: 50, repeat_time: nil, level_id: nil, start_date: nil},
