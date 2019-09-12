@@ -70,3 +70,5 @@ gem 'seed_dump'
 gem 'rack-cors', :require => 'rack/cors'
 
 gem "pundit"
+
+gem 'apollo_upload_server', '2.0.0.beta.3'
