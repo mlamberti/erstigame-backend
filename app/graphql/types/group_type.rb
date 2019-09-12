@@ -1,11 +1,14 @@
 module Types
   class GroupType < BaseObject
-    field :id, ID, null: false
+    implements GraphQL::Relay::Node.interface
+    global_id_field :id
+
     field :name, String, null: false
     field :photos, [PhotoType], null: false
     field :createdAt, String, null: true
     field :updatedAt, String, null: true
-    field :points, Integer, null:false
+    field :points, Integer, null: false
+
     field :users, [UserType], null: false
     def users
       # move current user to front of array

@@ -1,7 +1,8 @@
 module Types
   class HashtagType < Types::BaseObject
     implements GraphQL::Relay::Node.interface
-    field :id, ID, null: false
+    global_id_field :id
+
     field :name, String, null: false
     field :info, String, null: false
     field :points, Integer, null: false

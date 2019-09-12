@@ -1,6 +1,8 @@
 module Types
   class UserType < BaseObject
-    field :id, ID, null: false
+    implements GraphQL::Relay::Node.interface
+    global_id_field :id
+
     field :group, GroupType, null: false
     field :name, String, null: false
     field :info, String, null: true
