@@ -82,14 +82,12 @@ ActiveRecord::Schema.define(version: 2019_09_12_181107) do
   create_table "photos", force: :cascade do |t|
     t.integer "group_id", null: false
     t.integer "user_id", null: false
-    t.string "path", null: false
     t.datetime "date", null: false
     t.integer "people_count", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "points", default: 0, null: false
     t.index ["group_id"], name: "index_photos_on_group_id"
-    t.index ["path"], name: "index_photos_on_path", unique: true
     t.index ["user_id"], name: "index_photos_on_user_id"
   end
 
