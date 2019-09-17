@@ -6,7 +6,7 @@ Level.create!([
   {rank: 5, num_hours: 100, num_places: 0, num_sponsors: 10, num_catches: 6}
 ])
 Group.create!([
-  {name: "Einhörner", join_token: "f9EwJg3i3Wg853uzENvR9FUw", level_id: 2, points: 100, num_catches: 0, num_places: 0, num_sponsors: 0, time_together: 0},
+  {name: "Einhörner", join_token: "f9EwJg3i3Wg853uzENvR9FUw", level_id: 3, points: 100, num_catches: 0, num_places: 0, num_sponsors: 0, time_together: 0},
   {name: "Eichhörnchen", join_token: "y7ixkbExLUJQwqEzmdZL7MRF", level_id: nil, points: 0, num_catches: 0, num_places: 0, num_sponsors: 0, time_together: 0},
   {name: "Einhörnchen", join_token: "tKBnZa5c9S9wuGCGTLX42qD7", level_id: nil, points: 0, num_catches: 0, num_places: 0, num_sponsors: 0, time_together: 0}
 ])
@@ -55,5 +55,7 @@ User.create!([
   {group_id: 1, name: "Dieter", info: nil, picture: nil, auth_token: "YSdBkVXCYMaJZAwW9DsrTmH6"}
 ])
 Photo.create!([
-  {group_id: 1, user_id: 1, path: "assets/1.jpg", date: "2019-08-29 23:49:16", people_count: 12, points: 0, hashtags: [Hashtag.first, Hashtag.second]}
+  {group_id: 1, user_id: 1, path: "assets/1.jpg", date: "2019-08-29 23:49:16", people_count: 12, points: 0, hashtags: [Hashtag.first, Hashtag.second]},
+  {group_id: 1, user_id: 2, path: "assets/1.jpg", date: "2019-08-23 23:49:16", people_count: 5, points: 0, hashtags: [Hashtag.first, Hashtag.second]},
+  {group_id: 2, user_id: 5, path: "assets/1.jpg", date: "2019-08-29 23:49:16", people_count: 12, points: 0, hashtags: [Hashtag.first, Hashtag.second]}
 ])
