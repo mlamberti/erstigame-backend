@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_21_094440) do
+ActiveRecord::Schema.define(version: 2019_09_23_233700) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -33,6 +33,15 @@ ActiveRecord::Schema.define(version: 2019_09_21_094440) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "group_rallye_ratings", force: :cascade do |t|
+    t.integer "group_id"
+    t.integer "rallye_rating_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["group_id"], name: "index_group_rallye_ratings_on_group_id"
+    t.index ["rallye_rating_id"], name: "index_group_rallye_ratings_on_rallye_rating_id"
+  end
+
   create_table "groups", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
@@ -46,13 +55,6 @@ ActiveRecord::Schema.define(version: 2019_09_21_094440) do
     t.integer "time_together", default: 0, null: false
     t.index ["join_token"], name: "index_groups_on_join_token", unique: true
     t.index ["level_id"], name: "index_groups_on_level_id"
-  end
-
-  create_table "groups_rallye_ratings", id: false, force: :cascade do |t|
-    t.integer "rallye_rating_id", null: false
-    t.integer "group_id", null: false
-    t.index ["group_id", "rallye_rating_id"], name: "index_groups_rallye_ratings_on_group_id_and_rallye_rating_id"
-    t.index ["rallye_rating_id", "group_id"], name: "index_groups_rallye_ratings_on_rallye_rating_id_and_group_id"
   end
 
   create_table "hashtags", force: :cascade do |t|

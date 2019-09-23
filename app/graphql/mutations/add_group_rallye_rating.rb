@@ -7,13 +7,17 @@ module Mutations
 
     def resolve(token: nil)
       rating = RallyeRating.find_by(token: token)
+      return { errors: ["Rating not found"] } unless rating
+
       group = context[:current_user].group
 
-      if group.rallye_ratings << rating
-        { rallye_rating: rating }
-      else
-        { errors: group.errors.full_messages }
+      begin
+        group.rallye_ratings << rating
+      rescue ActiveRecord::RecordNotUnique
+        return { errors: ["Rating already exists"] }
       end
+
+      { rallye_rating: rating }
     end
   end
 end
