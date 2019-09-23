@@ -9,15 +9,13 @@ module Types
     field :description, String, null: true
     field :picture, String, null: true
     field :repeatTime, String, null: true
+    field :level, LevelType, null: true
     field :createdAt, String, null: true
     field :updatedAt, String, null: true
+
     field :repeatable, Boolean, null: false
     def repeatable
       !object.repeat_time.nil?
-    end
-    field :level, Integer, null: false
-    def level
-      object.rank
     end
 
     field :done, Boolean, null: true
