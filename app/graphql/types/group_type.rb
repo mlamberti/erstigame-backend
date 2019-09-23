@@ -7,6 +7,7 @@ module Types
     field :photos, [PhotoType], null: false
     field :points, Integer, null: false
     field :level, LevelType, null: false
+    field :rallye_ratings, [RallyeRatingType], null: false
     field :createdAt, String, null: true
     field :updatedAt, String, null: true
 

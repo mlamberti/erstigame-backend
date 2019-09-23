@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  rallye_station: one
+  points: 1
+  token: MyString
+
+two:
+  rallye_station: two
+  points: 1
+  token: MyString
