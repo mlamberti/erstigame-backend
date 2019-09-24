@@ -10,6 +10,7 @@ module Types
     field :picture, String, null: true
     field :repeatTime, String, null: true
     field :level, LevelType, null: true
+    field :category, HashtagCategory, null: true
     field :createdAt, String, null: true
     field :updatedAt, String, null: true
 
