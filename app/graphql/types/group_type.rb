@@ -10,6 +10,10 @@ module Types
     field :rallye_ratings, [RallyeRatingType], null: false
     field :createdAt, String, null: true
     field :updatedAt, String, null: true
+    field :num_catches, Integer, null: false
+    field :num_places, Integer, null: false
+    field :num_sponsors, Integer, null: false
+    field :time_together, Integer, null: false
 
     field :users, [UserType], null: false
     def users
