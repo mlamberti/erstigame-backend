@@ -40,7 +40,13 @@ Hashtag.create!([
   {name: "AnmeldungWeihnachtsAG", info: "", description: nil, picture: nil, points: 10, repeat_time: nil, level: Level.find_by(rank: 4), start_date: nil},
   {name: "UnicUpAuswahlTraining", info: "", description: nil, picture: nil, points: 20, repeat_time: nil, level: Level.find_by(rank: 4), start_date: nil},
   {name: "FachschaftsSpieleabend", info: "", description: nil, picture: nil, points: 30, repeat_time: nil, level: Level.find_by(rank: 4), start_date: nil},
-  {name: "CatchHenning", info: "Besuche das Fachschaftsmaskottchen im Aachener Tierpark", description: nil, picture: "FindHenning.jpg", points: 50, repeat_time: nil, level: Level.find_by(rank: 4), start_date: nil}
+  {name: "CatchHenning", info: "Besuche das Fachschaftsmaskottchen im Aachener Tierpark", description: nil, picture: "FindHenning.jpg", points: 50, repeat_time: nil, level: Level.find_by(rank: 4), start_date: nil},
+  {name: "Charlotte", info: "TEKKELN", description: nil, picture: nil, points: 50, repeat_time: nil, level: Level.find_by(rank: 2), start_date: nil , category: :catch},
+  {name: "Mariano", info: "TEKKELN", description: nil, picture: nil, points: 50, repeat_time: nil, level: Level.find_by(rank: 2), start_date: nil , category: :catch},
+  {name: "Audimax", info: "drinnen", description: nil, picture: nil, points: 50, repeat_time: nil, level: Level.find_by(rank: 2), start_date: nil , category: :place},
+  {name: "Carl", info: "drinnen", description: nil, picture: nil, points: 50, repeat_time: nil, level: Level.find_by(rank: 2), start_date: nil , category: :place},
+  {name: "Frankhenne", info: "drinnen", description: nil, picture: nil, points: 50, repeat_time: nil, level: Level.find_by(rank: 2), start_date: nil , category: :sponsor},
+  {name: "Tierpark", info: "drinnen", description: nil, picture: nil, points: 50, repeat_time: nil, level: Level.find_by(rank: 2), start_date: nil , category: :sponsor},
 ])
 
 User.create!([

@@ -10,5 +10,6 @@ module Types
     field :createdAt, String, null: true
     field :updatedAt, String, null: true
     field :photos, [PhotoType], null: true
+    field :gender, GenderEnum, null: true
   end
 end
