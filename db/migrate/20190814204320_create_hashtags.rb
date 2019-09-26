@@ -6,7 +6,7 @@ class CreateHashtags < ActiveRecord::Migration[5.2]
       t.text :description
       t.string :picture
       t.integer :points, null: false, default: 100
-      t.time :repeat_time
+      t.integer :repeat_time
 
       t.timestamps
     end

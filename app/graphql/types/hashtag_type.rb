@@ -14,16 +14,29 @@ module Types
     field :createdAt, String, null: true
     field :updatedAt, String, null: true
 
-    field :repeatable, Boolean, null: false
+    field :repeatable, Boolean, null: true
     def repeatable
-      !object.repeat_time.nil?
+      repeatable_at&. <= Time.now
+    end
+
+    field :repeatable_at, String, null: true
+    def repeatable_at
+      return unless context[:current_user]
+      return if object.repeat_time.nil?
+
+      last_time = object.photos.where(group: context[:current_user].group).order(date: :desc).first&.date
+      last_time ? last_time + object.repeat_time : Time.now
     end
 
     field :done, Boolean, null: true
     def done
       return unless context[:current_user]
-      #object.photos.exists? group_id: context[:current_user].group_id
-      Photo.find_by(group_id: context[:current_user].group_id)&.hashtags&.exists? id
+      object.photos.exists? group: context[:current_user].group
+    end
+
+    field :doable, Boolean, null: true
+    def doable
+      !done || repeatable
     end
   end
 end

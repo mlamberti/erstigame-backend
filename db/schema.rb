@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(version: 2019_09_24_193116) do
     t.text "description"
     t.string "picture"
     t.integer "points", default: 100, null: false
-    t.time "repeat_time"
+    t.integer "repeat_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "level_id"
