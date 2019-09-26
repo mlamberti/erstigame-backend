@@ -5,6 +5,6 @@ class Hashtag < ApplicationRecord
   belongs_to :level, optional: true
 
   def rank
-    level_id || 0
+    level&.rank || 0
   end
 end
