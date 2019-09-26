@@ -24,7 +24,7 @@ module Types
 
     field :hashtags, [HashtagType], null: true
     def hashtags
-      Hashtag.joins(:level).where("levels.rank <= ?", object.rank).order(:level)
+      Hashtag.joins(:level).where("levels.rank <= ?", object.rank)
     end
 
   end
