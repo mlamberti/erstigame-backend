@@ -1,11 +1,12 @@
 Level.create!([
   {rank: 0, num_hours: 0, num_places: 0, num_sponsors: 0, num_catches: 0},
-  {rank: 1, num_hours: 0, num_places: 0, num_sponsors: 0, num_catches: 0},
-  {rank: 2, num_hours: 5, num_places: 1, num_sponsors: 0, num_catches: 0},
-  {rank: 3, num_hours: 10, num_places: 3, num_sponsors: 2, num_catches: 1},
-  {rank: 4, num_hours: 20, num_places: 6, num_sponsors: 4, num_catches: 3},
-  {rank: 5, num_hours: 50, num_places: 10, num_sponsors: 6, num_catches: 6},
-  {rank: 6, num_hours: 100, num_places: 20, num_sponsors: 8, num_catches: 10}
+  {rank: 1, num_hours: 5, num_places: 1, num_sponsors: 0, num_catches: 0},
+  {rank: 2, num_hours: 25, num_places: 3, num_sponsors: 0, num_catches: 0},
+  {rank: 3, num_hours: 50, num_places: 5, num_sponsors: 0, num_catches: 2},
+  {rank: 4, num_hours: 100, num_places: 7, num_sponsors: 0, num_catches: 4},
+  {rank: 5, num_hours: 125, num_places: 8, num_sponsors: 0, num_catches: 6},
+  {rank: 6, num_hours: 150, num_places: 10, num_sponsors: 1, num_catches: 8},
+  {rank: 7, num_hours: 300, num_places: 12, num_sponsors: 3, num_catches: 10}
 ])
 
 Hashtag.create!([
