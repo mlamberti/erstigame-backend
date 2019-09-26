@@ -26,11 +26,11 @@ module Types
     end
 
     field :hashtag, HashtagType, null: true do
-      argument :id, ID, required: true
+      argument :hashtag_id, ID, required: true
     end
 
-    def hashtag(id:)
-      hashtag = Hashtag.find(id)
+    def hashtag(hashtag_id:)
+      hashtag = ErstigameBackendSchema.object_from_id(hashtag_id, context)
       context[:pundit].authorize hashtag, :show?
     end
 
