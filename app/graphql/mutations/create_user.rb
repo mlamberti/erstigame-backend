@@ -2,6 +2,9 @@ module Mutations
   class CreateUser < BaseMutation
     argument :name, String, required: true
     argument :group_token, String, required: true
+    argument :gender, String, required:false
+    argument :info, String, required:false
+
 
     field :token, String, null: true
     field :user, Types::UserType, null: true

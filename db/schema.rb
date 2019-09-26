@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_24_193116) do
+ActiveRecord::Schema.define(version: 2019_09_24_232204) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -124,6 +124,7 @@ ActiveRecord::Schema.define(version: 2019_09_24_193116) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "auth_token"
+    t.integer "gender"
     t.index ["auth_token"], name: "index_users_on_auth_token", unique: true
     t.index ["group_id"], name: "index_users_on_group_id"
   end
