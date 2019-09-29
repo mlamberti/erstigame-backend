@@ -36,15 +36,6 @@ ActiveRecord::Schema.define(version: 2019_09_27_231412) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "group_rallye_ratings", force: :cascade do |t|
-    t.bigint "group_id"
-    t.bigint "rallye_rating_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["group_id"], name: "index_group_rallye_ratings_on_group_id"
-    t.index ["rallye_rating_id"], name: "index_group_rallye_ratings_on_rallye_rating_id"
-  end
-
   create_table "groups", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
@@ -86,10 +77,10 @@ ActiveRecord::Schema.define(version: 2019_09_27_231412) do
 
   create_table "levels", force: :cascade do |t|
     t.integer "rank"
+    t.integer "num_hours"
     t.integer "num_places"
     t.integer "num_sponsors"
     t.integer "num_catches"
-    t.integer "num_hours"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -108,15 +99,18 @@ ActiveRecord::Schema.define(version: 2019_09_27_231412) do
 
   create_table "rallye_ratings", force: :cascade do |t|
     t.bigint "rallye_station_id", null: false
+    t.bigint "group_id", null: false
     t.integer "points", null: false
-    t.string "token", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["group_id"], name: "index_rallye_ratings_on_group_id"
     t.index ["rallye_station_id"], name: "index_rallye_ratings_on_rallye_station_id"
   end
 
   create_table "rallye_stations", force: :cascade do |t|
+    t.string "tag", null: false
     t.string "name", null: false
+    t.string "token", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -135,13 +129,12 @@ ActiveRecord::Schema.define(version: 2019_09_27_231412) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "group_rallye_ratings", "groups"
-  add_foreign_key "group_rallye_ratings", "rallye_ratings"
   add_foreign_key "groups", "levels"
   add_foreign_key "hashtags", "levels"
   add_foreign_key "hashtags", "levels", column: "required_by_level_id"
   add_foreign_key "photos", "groups"
   add_foreign_key "photos", "users"
+  add_foreign_key "rallye_ratings", "groups"
   add_foreign_key "rallye_ratings", "rallye_stations"
   add_foreign_key "users", "groups"
 end

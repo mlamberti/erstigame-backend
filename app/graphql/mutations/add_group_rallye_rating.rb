@@ -1,23 +1,25 @@
 module Mutations
   class AddGroupRallyeRating < BaseMutation
     argument :token, String, required: true
+    argument :group, String, required: true
+    argument :points, String, required: true
 
-    field :rallye_rating, Types::RallyeRatingType, null: true
     field :errors, [String], null: true
 
-    def resolve(token: nil)
-      rating = RallyeRating.find_by(token: token)
-      return { errors: ["Rating not found"] } unless rating
+    def resolve(token, group, points)
+      station = RallyeStation.find_by(token: token)
+      return { errors: ["Station not found"] } unless station
 
-      group = context[:current_user].group
+      rating = group.rallye_ratings.find_by rallye_station: station
 
-      begin
-        group.rallye_ratings << rating
-      rescue ActiveRecord::RecordNotUnique
-        return { errors: ["Rating already exists"] }
+      if !rating
+        group.rallye_ratings << RallyeRating.create(group: group, station: station, point: points)
+      else
+        rating.points = points
+        rating.save!
       end
 
-      { rallye_rating: rating }
+      { errors: rating&.errors.full_messages }
     end
   end
 end

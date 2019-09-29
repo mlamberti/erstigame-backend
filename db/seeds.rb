@@ -6,7 +6,7 @@ Level.create!([
   {rank: 4, num_hours: 100, num_places: 7, num_sponsors: 0, num_catches: 4},
   {rank: 5, num_hours: 125, num_places: 8, num_sponsors: 0, num_catches: 6},
   {rank: 6, num_hours: 150, num_places: 10, num_sponsors: 1, num_catches: 8},
-  {rank: 7, num_hours: 300, num_places: 12, num_sponsors: 3, num_catches: 10}
+  {rank: 7, num_hours: 300, num_places: 12, num_sponsors: 3, num_catches: 10},
 ])
 
 Hashtag.create!([
@@ -187,7 +187,7 @@ Group.create!([
   { name: "lone survivor",                                join_token: "bWCUUi7tzSMs4Xe3ydVGJ2WV", level_id: 1, points: 0, num_catches: 0, num_places: 0, num_sponsors: 0, time_together: 0},
   { name: "Aachen rookie",                                join_token: "eT2As2CaKRAWnAYLowoPC38k", level_id: 1, points: 0, num_catches: 0, num_places: 0, num_sponsors: 0, time_together: 0},
   { name: "Animal Farm",                                  join_token: "NVw5bfbFWdX5D2ASZQkU8XjZ", level_id: 1, points: 0, num_catches: 0, num_places: 0, num_sponsors: 0, time_together: 0},
-  { name: "Only Love",                                    join_token: "iBX8jAerpaEvepS4aFNCiRLY", level_id: 1, points: 0, num_catches: 0, num_places: 0, num_sponsors: 0, time_together: 0}
+  { name: "Only Love",                                    join_token: "iBX8jAerpaEvepS4aFNCiRLY", level_id: 1, points: 0, num_catches: 0, num_places: 0, num_sponsors: 0, time_together: 0},
 ])
 
 User.create!([
@@ -203,19 +203,35 @@ User.create!([
   {group_id: 1, name: "Hansi", info: nil, picture: nil, auth_token: "uQ2ytCN3y3HUGCh6LxQNDPzD"},
   {group_id: 1, name: "Herbert", info: nil, picture: nil, auth_token: "QDgXcgo1JD8AaPfE5Qv3TrZo"},
   {group_id: 1, name: "Andreas Arthur Eugen Albert", info: nil, picture: nil, auth_token: "SuvCaLe3RihWTAp3P63tJfjk"},
-  {group_id: 1, name: "Dieter", info: nil, picture: nil, auth_token: "YSdBkVXCYMaJZAwW9DsrTmH6"}
+  {group_id: 1, name: "Dieter", info: nil, picture: nil, auth_token: "YSdBkVXCYMaJZAwW9DsrTmH6"},
 ])
 
 RallyeStation.create!([
-  {name: "Schwimmnudelziehen"},
-  {name: "1, 2 oder 3"},
-  {name: "Hüpfburg"},
-  {name: "Jenga Schwerelos"},
-  {name: "Tic Tac Toe"}
+  { tag: "4 TG2",   name: "1, 2 oder 3" },
+  { tag: "4 HSZ",   name: "Hüpfburg" },
+  { tag: "4 IME",   name: "Bobby Car Rennen" },
+  { tag: "4 PP",    name: "Ecurie" },
+  { tag: "4 S902",  name: "Bagger Fahren" },
+  { tag: "4 BI 3",  name: "Gefängnisausbruch" },
+  { tag: "4 RP",    name: "Menschenkicker" },
+  { tag: "4 WS 1",  name: "Ferngesteuertes Auto" },
+  { tag: "4 KS 2",  name: "Knotenmutter" },
+  { tag: "4 ARC 1", name: "Teamhuckepacktragen" },
+  { tag: "4 AP 2",  name: "Pinguinscholle Drehen" },
+  { tag: "4 PPS 1", name: "Jenga Schwerelos" },
+  { tag: "4 IS",    name: "Mehl-Briefumschläge" },
+  { tag: "4 KS 3",  name: "Montagsmaler" },
+  { tag: "4 S901",  name: "Okay Google, sing meinen Song" },
+  { tag: "4 BI 2",  name: "Sackhüpfen" },
+  { tag: "4 WS 3",  name: "Tik Tak Toe" },
+  { tag: "4 KS 1",  name: "Tamponlauf" },
+  { tag: "4 TG 1",  name: "Scharade Teambuildingaufgabe" },
+  { tag: "4 WS 2",  name: "Steelers Fan Zone" },
+  { tag: "4 AB 2",  name: "Marschmallow" },
+  { tag: "4 BS 1",  name: "Schwimmnudelziehen" },
+  { tag: "4 PS",    name: "Studiwerkstatt" },
+  { tag: "4 ARC 2", name: "Aachen Drone Development" },
+  { tag: "4 PPS 2", name: "Euroavia" },
+  { tag: "4 SB",    name: " Flugwissenschaftliche Vereinigung Aachen" },
 ])
 
-RallyeStation.all.each do |station|
-  for points in 1..10
-    RallyeRating.create! rallye_station: station, points: points
-  end
-end
