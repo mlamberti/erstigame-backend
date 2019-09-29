@@ -13,7 +13,8 @@ module Types
     field :num_catches, Integer, null: false
     field :num_places, Integer, null: false
     field :num_sponsors, Integer, null: false
-    field :time_together, Integer, null: false
+    field :num_hours, Float, null: false
+    field :hashtags, [HashtagType], null: true
 
     field :users, [UserType], null: false
     def users
@@ -22,10 +23,6 @@ module Types
       [context[:current_user]] + (object.users - [context[:current_user]])
     end
 
-    field :hashtags, [HashtagType], null: true
-    def hashtags
-      Hashtag.joins(:level).where("levels.rank <= ?", object.rank)
-    end
 
   end
 end

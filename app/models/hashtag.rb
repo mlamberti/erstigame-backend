@@ -3,6 +3,7 @@ class Hashtag < ApplicationRecord
   enum category: [ :catch, :sponsor, :place ]
 
   belongs_to :level, optional: true
+  belongs_to :required_by_level, optional: true, class_name: "Level"
 
   def rank
     level&.rank || 0
