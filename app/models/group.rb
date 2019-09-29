@@ -7,8 +7,6 @@ class Group < ApplicationRecord
   has_many :rallye_ratings, through: :group_rallye_ratings
   has_many :rallye_stations, through: :rallye_ratings
 
-  before_save :update_level
-
   def update_level
     return unless self.num_hours >= self.level.num_hours
     return unless self.num_places >= self.level.num_places

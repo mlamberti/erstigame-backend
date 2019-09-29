@@ -65,6 +65,7 @@ class Photo < ApplicationRecord
     self.group.num_catches += 1 if hashtag.catch?
     self.group.num_places += 1 if hashtag.place?
     self.group.num_sponsors += 1 if hashtag.sponsor?
+    self.group.update_level
     self.group.save!
   end
 
