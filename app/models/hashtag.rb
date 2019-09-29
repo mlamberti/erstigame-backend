@@ -8,4 +8,8 @@ class Hashtag < ApplicationRecord
   def rank
     level&.rank || 0
   end
+
+  def to_s
+    self.name
+  end
 end

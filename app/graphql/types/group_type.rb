@@ -14,7 +14,7 @@ module Types
     field :num_places, Integer, null: false
     field :num_sponsors, Integer, null: false
     field :num_hours, Float, null: false
-    field :hashtags, [HashtagType], null: true
+    field :hashtags_available, [HashtagType], null: true
 
     field :users, [UserType], null: false
     def users
