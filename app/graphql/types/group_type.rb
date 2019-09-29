@@ -22,7 +22,10 @@ module Types
       # object.users.sort { |a, b| a == context[:current_user] ? -1 : b == context[:current_user] ? 1 : 0 }
       [context[:current_user]] + (object.users - [context[:current_user]])
     end
-
+    field :token, String, null: true
+    def token
+      return object.join_token if context[:current_user].group==object
+    end
 
   end
 end
