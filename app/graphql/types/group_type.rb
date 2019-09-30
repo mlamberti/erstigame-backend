@@ -4,7 +4,6 @@ module Types
     global_id_field :id
 
     field :name, String, null: false
-    field :photos, [PhotoType], null: false
     field :points, Integer, null: false
     field :level, LevelType, null: false
     field :rallye_stations, [RallyeStationType], null: false
@@ -15,6 +14,11 @@ module Types
     field :num_sponsors, Integer, null: false
     field :num_hours, Float, null: false
     field :hashtags_available, [HashtagType], null: true
+
+    field :photos, [PhotoType], null: false
+    def photos
+      object.photos.order date: 'DESC'
+    end
 
     field :users, [UserType], null: false
     def users

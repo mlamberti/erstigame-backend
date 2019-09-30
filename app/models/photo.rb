@@ -59,7 +59,7 @@
   end
 
   def update_group_after_create
-    self.group.time_together += self.num_hours*3600
+    self.group.time_together += self.num_hours * 3600
     self.group.save!
   end
 

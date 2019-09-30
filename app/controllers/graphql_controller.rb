@@ -1,7 +1,7 @@
 class GraphqlController < ApplicationController
   include Pundit
   rescue_from Pundit::NotAuthorizedError, with: :unauthorized
-  #after_action :verify_authorized
+  # after_action :verify_authorized
 
   attr_reader :current_user
   before_action :authenticate_user
@@ -40,7 +40,7 @@ class GraphqlController < ApplicationController
   def authenticate_user
     @current_user ||= User.find_by auth_token: request.headers['Authorization']&.gsub(/Bearer /, '')
     @current_user ||= User.first
-    #head(:unauthorized) && (return false) unless @current_user.present?
+    # head(:unauthorized) && (return false) unless @current_user.present?
   end
 
   private
