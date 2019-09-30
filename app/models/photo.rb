@@ -10,6 +10,7 @@ class Photo < ApplicationRecord
 
   before_create :default_date_to_now
 
+  after_create: :update_group_after_create
   before_destroy :update_group_before_destroy
 
   def hashtag_names
@@ -54,6 +55,11 @@ class Photo < ApplicationRecord
     self.group.num_catches -= self.num_catches
     self.group.num_places -= self.num_places
     self.group.num_sponsors -= self.num_sponsors
+    self.group.save!
+  end
+
+  def update_group_after_create
+    self.group.num_hours += self.num_hours
     self.group.save!
   end
 
