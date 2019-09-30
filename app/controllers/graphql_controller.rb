@@ -39,7 +39,7 @@ class GraphqlController < ApplicationController
 
   def authenticate_user
     @current_user ||= User.find_by auth_token: request.headers['Authorization']&.gsub(/Bearer /, '')
-    @current_user ||= User.find_by auth_token: "7AoV1M3zP1rAnZ4MEp48WcPb"
+    @current_user ||= User.first
     #head(:unauthorized) && (return false) unless @current_user.present?
   end
 
