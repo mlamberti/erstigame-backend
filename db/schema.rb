@@ -95,8 +95,8 @@ ActiveRecord::Schema.define(version: 2019_09_27_231412) do
   end
 
   create_table "rallye_ratings", force: :cascade do |t|
-    t.bigint "rallye_station_id", null: false
-    t.bigint "group_id", null: false
+    t.integer "rallye_station_id", null: false
+    t.integer "group_id", null: false
     t.integer "points", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -124,6 +124,5 @@ ActiveRecord::Schema.define(version: 2019_09_27_231412) do
     t.index ["auth_token"], name: "index_users_on_auth_token", unique: true
     t.index ["group_id"], name: "index_users_on_group_id"
   end
-
 
 end

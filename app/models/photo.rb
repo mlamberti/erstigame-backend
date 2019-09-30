@@ -1,4 +1,4 @@
-class Photo < ApplicationRecord
+ class Photo < ApplicationRecord
   FULL_HOURS = 2
 
   belongs_to :group
@@ -10,7 +10,7 @@ class Photo < ApplicationRecord
 
   before_create :default_date_to_now
 
-  after_create: :update_group_after_create
+  after_create :update_group_after_create
   before_destroy :update_group_before_destroy
 
   def hashtag_names
@@ -59,7 +59,7 @@ class Photo < ApplicationRecord
   end
 
   def update_group_after_create
-    self.group.num_hours += self.num_hours
+    self.group.time_together += self.num_hours*3600
     self.group.save!
   end
 
