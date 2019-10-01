@@ -1,4 +1,4 @@
-class UserPolicy < ApplicationPolicy
+class GroupPolicy < ApplicationPolicy
 
   class Scope < Scope
     def resolve
@@ -7,16 +7,15 @@ class UserPolicy < ApplicationPolicy
   end
 
   def index?
-    user.present?
+    true
   end
 
   def show?
-    record.group_id == user.group_id
+    true
   end
 
   def create?
-    # !user.present?
-    true
+    false
   end
 
 end

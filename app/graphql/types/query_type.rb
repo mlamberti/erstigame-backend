@@ -5,6 +5,7 @@ module Types
 
     field :viewer, UserType, null: true
     def viewer
+      return unless context[:current_user]
       context[:pundit].authorize context[:current_user], :show?
     end
 
@@ -25,6 +26,14 @@ module Types
       Group.find(id)
     end
 
+    field :group_by_token, GroupType, null: true do
+      argument :token, String, required: true
+    end
+
+    def group_by_token(token:)
+      Group.find_by join_token: token
+    end
+
     field :hashtag, HashtagType, null: true do
       argument :hashtag_id, ID, required: true
     end
@@ -32,6 +41,14 @@ module Types
     def hashtag(hashtag_id:)
       hashtag = ErstigameBackendSchema.object_from_id(hashtag_id, context)
       context[:pundit].authorize hashtag, :show?
+    end
+
+    field :rallye_station, RallyeStationType, null: true do
+      argument :token, String, required: true
+    end
+
+    def rallye_station(token:)
+      context[:current_user] = RallyeStation.find_by token: token
     end
 
   end
