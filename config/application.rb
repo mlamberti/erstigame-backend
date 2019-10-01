@@ -21,6 +21,8 @@ module ErstigameBackend
     config.middleware.use ActionDispatch::Session::CookieStore, key: '_coookie_name', expire_after: 30.days
     config.middleware.use ActionDispatch::Flash
 
+    config.middleware.use Rack::MethodOverride
+
     config.middleware.insert_before 0, Rack::Cors do
       allow do
         origins '*'
