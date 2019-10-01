@@ -14,7 +14,7 @@ development:
   encoding: unicode
   database: erstigame
   username: erstigame
-  password: E8V_?9&J\)MXfk9]
+  password: 
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -28,6 +28,8 @@ production:
   <<: *default
   adapter: postgresql
   encoding: unicode
+  host: db
   database: erstigame
   username: erstigame
-  password: E8V_?9&J\)MXfk9]
+  password: 
+  pool: 5
