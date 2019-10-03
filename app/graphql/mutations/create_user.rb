@@ -16,7 +16,7 @@ module Mutations
         group: Group.find_by(join_token: group_token)
       )
 
-      context[:current_user]&.invalidate
+      # context[:current_user]&.invalidate
 
       if context[:pundit].authorize(user, :create?).save
         { user: user, auth_token: user.auth_token }
