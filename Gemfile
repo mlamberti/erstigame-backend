@@ -73,3 +73,6 @@ gem "pundit"
 
 gem 'apollo_upload_server', '2.0.0.beta.3'
 
+gem 'pg'
+
+gem 'rails_admin', '~> 2.0'
