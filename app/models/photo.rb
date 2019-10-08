@@ -21,6 +21,14 @@
     self.date ||= Time.now
   end
 
+  def url
+    Rails.application.routes.url_helpers.rails_blob_url self.picture
+  end
+
+  def path
+    Rails.application.routes.url_helpers.rails_blob_path self.picture
+  end    
+
   def points
     self.hashtags.sum(:points)
   end

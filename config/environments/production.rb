@@ -1,5 +1,5 @@
 Rails.application.configure do
-  routes.default_url_options[:host] = 'localhost:3000'
+  Rails.application.routes.default_url_options = { host: "erstigame-backend.herokuapp.com", protocol: "https" }
 
   # Settings specified here will take precedence over those in config/application.rb.
 
