@@ -29,31 +29,35 @@ class Group < ApplicationRecord
   end
 
   def hashtags_done
-    self.photos.sum(&:hashtags)
+    self.photos.sum &:hashtags
+  end
+
+  def rallye_points
+    self.rallye_ratings.sum &:points
   end
 
   def calc_points
-    self.photos.sum(&:points)
+    self.photos.sum &:points
   end
 
   def calc_num_hours
-    self.photos.sum(&:num_hours)
+    self.photos.sum &:num_hours
   end
 
   def calc_num_hours_unweighted
-    self.photos.sum(&:num_hours_unweighted)
+    self.photos.sum &:num_hours_unweighted
   end
 
   def calc_num_catches
-    self.photos.sum(&:num_catches)
+    self.photos.sum &:num_catches
   end
 
   def calc_num_places
-    self.photos.sum(&:num_places)
+    self.photos.sum &:num_places
   end
 
   def calc_num_sponsors
-    self.photos.sum(&:num_sponsors)
+    self.photos.sum &:num_sponsors
   end
 
 end

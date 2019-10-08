@@ -8,13 +8,14 @@ module Types
     field :level, LevelType, null: false
     field :points, Integer, null: false
     field :rallye_ratings, [RallyeRatingType], null: false
-    field :createdAt, String, null: true
-    field :updatedAt, String, null: true
+    field :rallye_points, Integer, null: false
     field :num_catches, Integer, null: false
     field :num_places, Integer, null: false
     field :num_sponsors, Integer, null: false
     field :num_hours, Float, null: false
     field :hashtags_available, [HashtagType], null: true
+    field :createdAt, String, null: true
+    field :updatedAt, String, null: true
 
     field :photos, [PhotoType], null: false
     def photos
@@ -35,12 +36,9 @@ module Types
 
     field :rallye_rating, RallyeRatingType, null: true
     def rallye_rating
-      object.rallye_ratings.find_by rallye_station: context[:current_user] if context[:current_user].is_a? RallyeStation
+      return unless context[:current_user].is_a? RallyeStation
+      object.rallye_ratings.find_by rallye_station: context[:current_user]
     end
 
-    field :rallye_points, Integer, null: false
-    def rallye_points
-      object.rallye_ratings.sum :points
-    end
   end
 end
