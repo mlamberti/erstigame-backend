@@ -6,6 +6,7 @@ class Group < ApplicationRecord
   has_many :rallye_ratings
   has_many :rallye_stations, through: :rallye_ratings
 
+  before_update :update_level
   before_create :default_number, :default_level
 
   def default_number
@@ -39,7 +40,7 @@ class Group < ApplicationRecord
   end
 
   def hashtags_available
-    Hashtag.joins(:level).where("levels.rank <= ?", self.rank)
+    Hashtag.joins(:level).where("levels.rank <= ?", self.rank).order("hashtags.name ASC")
   end
 
   def hashtags_done

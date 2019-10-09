@@ -1,4 +1,4 @@
- class Photo < ApplicationRecord
+class Photo < ApplicationRecord
   FULL_HOURS = 2
 
   belongs_to :group
@@ -84,7 +84,6 @@
     self.group.num_catches += 1 if hashtag.catch?
     self.group.num_places += 1 if hashtag.place?
     self.group.num_sponsors += 1 if hashtag.sponsor?
-    self.group.update_level
     self.group.save!
   end
 
