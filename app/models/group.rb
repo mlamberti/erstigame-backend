@@ -6,6 +6,16 @@ class Group < ApplicationRecord
   has_many :rallye_ratings
   has_many :rallye_stations, through: :rallye_ratings
 
+  before_create :default_number, :default_level
+
+  def default_number
+    self.number ||= (Group.maximum(:number) || 0) + 1;
+  end
+
+  def default_level
+    self.level = Level.find_by rank: 1
+  end
+
   def update_level
     return unless self.num_hours >= self.level.num_hours
     return unless self.num_places >= self.level.num_places
