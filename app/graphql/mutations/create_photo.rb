@@ -9,6 +9,8 @@ module Mutations
     field :errors, [String], null: true
 
     def resolve(picture:, people_count:, hashtags:, date: nil)
+      date ||= Time.now
+
       photo = Photo.new(
         user: context[:current_user],
         group: context[:current_user].group,
