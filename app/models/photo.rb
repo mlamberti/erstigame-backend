@@ -30,11 +30,15 @@
   end    
 
   def points
-    self.hashtags.sum(:points)
+    self.hashtags.sum(:points) + self.time_together_points
+  end
+
+  def time_together_points
+    self.num_hours * 2
   end
 
   def num_catches
-    self.hashtags.where(category: :catches).count
+    self.hashtags.where(category: :catch).count
   end
 
   def num_places
@@ -42,11 +46,11 @@
   end
 
   def num_sponsors
-    self.hashtags.where(category: :sponsors).count
+    self.hashtags.where(category: :sponsor).count
   end
 
   def num_hours
-    num_hours_unweighted * people_count
+    self.num_hours_unweighted * self.people_count
   end
 
   def num_hours_unweighted
@@ -67,7 +71,8 @@
   end
 
   def update_group_after_create
-    self.group.time_together += self.num_hours * 3600
+    self.group.num_hours += self.num_hours
+    self.group.points += self.time_together_points
     self.group.save!
   end
 

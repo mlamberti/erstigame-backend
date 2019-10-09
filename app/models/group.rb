@@ -30,6 +30,10 @@ class Group < ApplicationRecord
     self.time_together / 3600.0
   end
 
+  def num_hours= hours
+    self.time_together = hours * 3600
+  end
+
   def rank
     level.rank
   end
@@ -70,4 +74,12 @@ class Group < ApplicationRecord
     self.photos.sum &:num_sponsors
   end
 
+  def recalc
+    self.points = self.calc_points
+    self.num_hours = self.calc_num_hours
+    self.num_catches = self.calc_num_catches
+    self.num_places = self.calc_num_places
+    self.num_sponsors = self.calc_num_sponsors
+    self.save!
+  end
 end
