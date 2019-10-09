@@ -34,7 +34,7 @@
   end
 
   def time_together_points
-    self.num_hours * 2
+    self.num_hours * 1
   end
 
   def num_catches
