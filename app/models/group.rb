@@ -44,7 +44,7 @@ class Group < ApplicationRecord
   end
 
   def hashtags_done
-    self.photos.sum &:hashtags
+    (hashtags_done = self.photos.sum &:hashtags) == 0 ? [] : hashtags_done
   end
 
   def rallye_points
