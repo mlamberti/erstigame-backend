@@ -50,7 +50,7 @@ class Photo < ApplicationRecord
   end
 
   def num_hours_unweighted
-    prev_photo = Photo.order('date DESC').find_by('date <= ? AND id != ?', self.date, self.id)
+    prev_photo = Photo.where(group: self.group).order('date DESC').find_by('date <= ? AND id != ?', self.date, self.id)
     return FULL_HOURS unless prev_photo
 
     hours = (self.date - prev_photo.date) / 1.hour
