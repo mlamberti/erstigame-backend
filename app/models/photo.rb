@@ -103,7 +103,7 @@ class Photo < ApplicationRecord
   end
 
   def recalc!
-    self.recalc_points
+    self.calc_points
     self.save!
   end
 
