@@ -75,7 +75,7 @@ class Group < ApplicationRecord
     self.photos.sum &:num_sponsors
   end
 
-  def recalc
+  def recalc!
     self.points = self.calc_points
     self.num_hours = self.calc_num_hours
     self.num_catches = self.calc_num_catches

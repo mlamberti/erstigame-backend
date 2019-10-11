@@ -8,7 +8,7 @@ class Photo < ApplicationRecord
 
   validates :group, :user, presence: true
 
-  before_create :default_date_to_now
+  before_create :default_date_to_now, :set_time_together_points
 
   after_create :update_group_after_create
   before_destroy :update_group_before_destroy
@@ -28,10 +28,6 @@ class Photo < ApplicationRecord
   def path
     Rails.application.routes.url_helpers.rails_blob_path self.picture
   end    
-
-  def points
-    self.hashtags.sum(:points) + self.time_together_points
-  end
 
   def time_together_points
     self.num_hours * 1
@@ -59,6 +55,10 @@ class Photo < ApplicationRecord
 
     hours = (self.date - prev_photo.date) / 1.hour
     return [hours, FULL_HOURS].min
+  end
+
+  def set_time_together_points
+    self.points += self.time_together_points
   end
 
   def update_group_before_destroy
@@ -96,6 +96,15 @@ class Photo < ApplicationRecord
     self.group.num_places -= 1 if hashtag.place?
     self.group.num_sponsors -= 1 if hashtag.sponsor?
     self.group.save!
+  end
+
+  def calc_points
+    self.points = self.hashtags.sum(:points) + self.time_together_points
+  end
+
+  def recalc!
+    self.recalc_points
+    self.save!
   end
 
 end
